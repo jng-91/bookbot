@@ -34,7 +34,7 @@ class Book:
 
 
 def main():
-    frankenstein = Book("Frankenstein", "Marry Shelley", "books/frankenstein.txt")
+    frankenstein = Book("Frankenstein", "Mary Shelley", "books/frankenstein.txt")
 
     frankenstein.count_words()
 
