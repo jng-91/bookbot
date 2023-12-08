@@ -24,6 +24,12 @@ class Book:
         tmp_book_list= self.get_book_text()
         
         return (len(tmp_book_list.split()))
+    
+    def count_letters(self):
+        tmp_text = self.get_book_text()
+        
+        
+
 
 
 
