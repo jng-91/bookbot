@@ -4,11 +4,6 @@
 #    print(text)
     
     
-
-def get_book_text(path):
-    with open(path) as f:
-        return f.read()
-
 class Book:
     def __init__(self, title, author, book_path):
         self.title = title
@@ -23,12 +18,12 @@ class Book:
     
     def get_book_text(self):
         with open (self.book_path) as f:
-            print(f.read())
+            return(f.read())
     
     def count_words(self):
-        with open (self.book_path) as f:
-            tmp_book_text = f.read()
-            print (len(tmp_book_text.split()))
+        tmp_book_list= self.get_book_text()
+        
+        return (len(tmp_book_list.split()))
 
 
 
@@ -36,7 +31,7 @@ class Book:
 def main():
     frankenstein = Book("Frankenstein", "Mary Shelley", "books/frankenstein.txt")
 
-    frankenstein.count_words()
+    print(frankenstein.count_words())
 
 
 main()
