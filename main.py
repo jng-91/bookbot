@@ -2,7 +2,7 @@
 #    book_path = "books/frankenstein.txt"
 #    text = get_book_text(book_path)
 #    print(text)
-    
+from operator import itemgetter  
     
 class Book:
     def __init__(self, title, author, book_path):
@@ -40,7 +40,38 @@ class Book:
         return letters_counted
     
 
-    
+    def get_report(self):
+        
+        counted_letters = self.count_letters()
+        tmp_list = list(counted_letters.items())
+
+        tmp_list_sorted = sorted(tmp_list, key=itemgetter(1))
+
+        print(f"--- Begin report of {self.book_path} ---")
+        
+        print ("")
+        
+        print (f"{self.count_words()} words found in the document")
+        
+        print ("")
+
+        for pair in tmp_list_sorted:
+            print (f"The {pair[0]} character was found {pair[1]} times")
+        
+        print ("")
+
+        print ("--- End report ---")
+
+        
+
+         
+
+        
+        
+
+
+
+        
         
         
         
@@ -53,7 +84,7 @@ def main():
 
     frankenstein = Book("Frankenstein", "Mary Shelley", "books/frankenstein.txt")
 
-    print(frankenstein.count_letters())
+    frankenstein.get_report()
 
 
 main()
