@@ -26,7 +26,17 @@ class Book:
         return (len(tmp_book_list.split()))
     
     def count_letters(self):
-        tmp_text = self.get_book_text()
+        tmp_text = self.get_book_text().lower()
+        letters_counted = {}
+        for letter in tmp_text:
+            if letter in letters_counted:
+                letters_counted[letter] += 1
+            elif letter == " ":
+                pass
+            else:
+                letters_counted[letter] = 1
+        return letters_counted
+        
         
         
 
@@ -35,9 +45,10 @@ class Book:
 
 
 def main():
+
     frankenstein = Book("Frankenstein", "Mary Shelley", "books/frankenstein.txt")
 
-    print(frankenstein.count_words())
+    print(frankenstein.count_letters())
 
 
 main()
