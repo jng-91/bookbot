@@ -39,12 +39,16 @@ class Book:
                 letters_counted[letter] = 1
         return letters_counted
     
-
+    # Prints a report about the Book class object that includes some text formatting and the number of words as well as the number of each character of the alphabet in the book
     def get_report(self):
         
+        #saves a Dictionary including all letters found in the book as key and the number of how often that letter is included as the keys value
         counted_letters = self.count_letters()
+        
+        # converts that dictionary to a list of touples while each touple has the following format [(key,value)]
         tmp_list = list(counted_letters.items())
 
+        #uses the python build in sorted function together with the itemgetter function to sort the list of touples by the touples [1] value in ascending order
         tmp_list_sorted = sorted(tmp_list, key=itemgetter(1))
 
         print(f"--- Begin report of {self.book_path} ---")
@@ -55,6 +59,7 @@ class Book:
         
         print ("")
 
+        #loop through the sorted list of touples to print each pair 
         for pair in tmp_list_sorted:
             print (f"The {pair[0]} character was found {pair[1]} times")
         
